@@ -1,4 +1,19 @@
 FROM python:3.11-slim
+# Set build-time variables (only available during `docker build`)
+ARG GOOGLE_SHEETS_ID
+ARG OPENAI_API_KEY
+ARG SENDER_EMAIL
+ARG SENDER_PASSWORD
+ARG SMTP_PORT
+ARG SMTP_SERVER
+
+# Set runtime environment variables (available inside the running container)
+ENV GOOGLE_SHEETS_ID=${GOOGLE_SHEETS_ID}
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+ENV SENDER_EMAIL=${SENDER_EMAIL}
+ENV SENDER_PASSWORD=${SENDER_PASSWORD}
+ENV SMTP_PORT=${SMTP_PORT}
+ENV SMTP_SERVER=${SMTP_SERVER}
 
 # Set the working directory in the container
 WORKDIR /app
