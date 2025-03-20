@@ -3,7 +3,6 @@
 ## Features
 - **AI-Powered Responses**: Provides accurate and context-aware answers to healthcare-related questions.
 - **Appointment Booking**: Allows users to check available slots and schedule appointments.
-- **Memory Retention**: Remembers previous interactions within the session for better user experience.
 - **Rich Response Formats**: Supports both text-based and tabular responses.
 - **Clear Chat History**: Users can reset the conversation anytime.
 - **User-Friendly UI**: Built with Streamlit for a seamless and interactive experience.
