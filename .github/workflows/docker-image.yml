@@ -36,7 +36,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/healthie_backend:0.0.2
+          tags: ${{ secrets.DOCKER_USERNAME }}/healthie_backend:0.0.3
           build-args: |
             GOOGLE_SHEETS_ID=${{ secrets.GOOGLE_SHEETS_ID }}
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
