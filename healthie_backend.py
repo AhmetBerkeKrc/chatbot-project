@@ -17,6 +17,19 @@ from langchain_core.messages import  ToolMessage
 from fastapi.responses import JSONResponse
 import os
 from dotenv import load_dotenv
+from google.cloud import secretmanager
+import json
+
+def get_secret(secret_name):
+    client = secretmanager.SecretManagerServiceClient()
+    project_id = "healthie-chatbot"
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+    response = client.access_secret_version(name=name)
+    secret_data = response.payload.data.decode("UTF-8")
+    return json.loads(secret_data)
+
+# Kullanmak
+
 
 load_dotenv()
 
@@ -28,7 +41,8 @@ app = FastAPI()
 # Load appointment list from Google Sheets
 def load_appointment_list():
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-    creds = Credentials.from_service_account_file("healthie_creds.json", scopes=scopes)
+    creds_data = get_secret("healthie_creds")
+    creds = Credentials.from_service_account_info(creds_data, scopes=scopes)
     client = gspread.authorize(creds)
     sheet_id = GOOGLE_SHEETS_ID
     sheet = client.open_by_key(sheet_id)
