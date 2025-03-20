@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+      - name: Set up environment variables
+        run: |
+          echo "GOOGLE_SHEETS_ID=${{ secrets.GOOGLE_SHEETS_ID }}" >> .env
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}" >> .env
+          echo "SENDER_PASSWORD=${{ secrets.SENDER_PASSWORD }}" >> .env
+          echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env
+          echo "SMTP_SERVER=${{ secrets.SMTP_SERVER }}" >> .env
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -29,7 +36,15 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/healthie_backend:0.0.1
+          tags: ${{ secrets.DOCKER_USERNAME }}/healthie_backend:0.0.2
+          build-args: |
+            GOOGLE_SHEETS_ID=${{ secrets.GOOGLE_SHEETS_ID }}
+            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+            SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}
+            SENDER_PASSWORD=${{ secrets.SENDER_PASSWORD }}
+            SMTP_PORT=${{ secrets.SMTP_PORT }}
+            SMTP_SERVER=${{ secrets.SMTP_SERVER }}
+            
 
       - name: Log out from Docker Hub
         run: docker logout
