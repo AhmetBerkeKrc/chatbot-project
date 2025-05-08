@@ -17,6 +17,7 @@
 - **Data Handling**: Google Sheets API for appointment management
 
 ## How to Use
+Visit 👉 [here](https://healthie-frontend.streamlit.app/) to access the chatbot.
 1. **Start a conversation**: Simply type your healthcare-related question in the chatbox.
 2. **Check appointment availability**: Ask something like _"Show me the available hours for the appointment."_
 3. **Book an appointment**: Provide details in a message such as "Book an appointment for [patient_name] with ID [patient_id], phone number [patient_number], and email [patient_email] with Dr. [doctor_name] at [time]."
