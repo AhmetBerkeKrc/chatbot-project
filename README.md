@@ -25,3 +25,13 @@ Quick Note: The booking feature is a bit sensitive at the moment. While other se
 4. **Clear history**: Reset the chat by clicking the _Clear history_ button if needed.
 5. **Learn more**: Click on _How to Use_ in the UI for guidance on using the chatbot.
 
+## Demo Images
+
+1. **Health related questions** 
+![Health questions](images/healthie_demo1.png)
+
+2. **Appoinment Operations**
+
+![Appointment1](images/healthie_demo2.png)
+
+![Appointment2](images/healthie_demo3.png)
