@@ -28,7 +28,6 @@ def get_secret(secret_name):
     secret_data = response.payload.data.decode("UTF-8")
     return json.loads(secret_data)
 
-# Kullanmak
 
 
 load_dotenv()
